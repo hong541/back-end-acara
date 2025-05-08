@@ -1,11 +1,26 @@
 import express from "express";
 import router from "./routes/api";
+import bodyParser from "body-parser";
+import db from "./utils/database";
 
-const app = express();
-const port = 3000;
+async function init() {
+  try {
+    const result = await db();
 
-app.use("/api", router);
+    console.log("Database status:", result);
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
-});
+    const app = express();
+    app.use(bodyParser.json());
+    const port = 3000;
+
+    app.use("/api", router);
+
+    app.listen(port, () => {
+      console.log(`Server is running at http://localhost:${port}`);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+init();
