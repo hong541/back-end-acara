@@ -13,6 +13,13 @@ async function init() {
     app.use(bodyParser.json());
     const port = 3000;
 
+    app.get("/", (req, res) => {
+      res.status(200).json({
+        message: "Welcome to the API",
+        data: null,
+      });
+    });
+
     app.use("/api", router);
 
     app.listen(port, () => {
