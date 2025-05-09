@@ -31,6 +31,18 @@ const doc = {
         identifier: "hongaja",
         password: "hong123",
       },
+
+      RegisterRequest: {
+        fullName: "Hongaja",
+        username: "hong2024",
+        email: "hong2024@yopmail.com",
+        password: "1234512345",
+        confirmPassword: "1234512345",
+      },
+
+      ActivationRequest: {
+        code: "abcdefg",
+      },
     },
   },
 };
